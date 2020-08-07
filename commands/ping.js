@@ -1,8 +1,8 @@
-//FIRST TEST HANDLER IS WORKING OR NOT
-module.exports = {
-  name: "ping",
-  description: "Pinging the bot",
-  execute(client, message) {
-    message.channel.send("PONG :)");
-  }
-};
+const Discord = require('discord.js')
+const db = require('quick.db')
+
+module.exports.run = async (client, message, args) => {  
+  let prefix = db.get(`prefixo_${message.guild.id}`)
+  
+  message.reply(`Minha latência agora é **${client.ws.ping}ms**!`)
+}
